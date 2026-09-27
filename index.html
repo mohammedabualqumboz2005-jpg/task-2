@@ -4,57 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task-2</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-
+    <title>Password Strength Checker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body
-    class="bg-gradient-to-br from-slate-900 to-slate-800 min-h-screen flex items-center justify-center font-sans text-slate-100">
+<body class="bg-slate-900 min-h-screen flex items-center justify-center font-sans text-slate-100">
 
-
-    <div
-        class="bg-slate-900/85 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-slate-700/50 w-full max-w-md mx-4">
+    <div class="bg-slate-800 p-8 rounded-2xl shadow-2xl border border-slate-700 w-full max-w-md mx-4">
         <h2 class="text-2xl font-bold mb-6 text-center text-sky-400">Password Strength Checker</h2>
 
-        <form id="passwordForm" class="space-y-5" novalidate>
-            <!-- حقل كلمة المرور -->
-            <div>
-                <label for="password" class="block text-sm font-medium mb-2 text-slate-300">Password</label>
-                <input type="password" id="password" placeholder="Enter your password" required
-                    class="w-full px-4 py-3 bg-slate-800/60 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent text-slate-100 placeholder-slate-500 transition-all">
+        <div>
+            <label for="password" class="block text-sm font-medium mb-2 text-slate-300">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" oninput="checkPassword()"
+                minlength="8" maxlength="20"
+                class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 text-slate-100">
 
-                <!-- شريط التقدم (Progress Bar) -->
-                <div class="w-full bg-slate-800 h-2.5 rounded-full mt-3 overflow-hidden">
-                    <div id="progressBar" class="h-full w-0 transition-all duration-300"></div>
-                </div>
-
-                <!-- النسبة المئوية وقوة الباسورد -->
-                <div class="flex justify-between items-center mt-2 text-sm">
-                    <span id="strengthText" class="text-slate-400 font-medium">Strength: 0%</span>
-                </div>
-
-                <!-- شروط الباسورد -->
-                <ul class="mt-4 space-y-1.5 text-xs text-slate-400">
-                    <li id="lengthReq" class="flex items-center gap-2">❌ At least 8 numbers (20%)</li>
-                    <li id="lowerReq" class="flex items-center gap-2">❌ At least 6 lowercase letters (40%)</li>
-                    <li id="upperReq" class="flex items-center gap-2">❌ At least 6 uppercase letters (100%)</li>
-                </ul>
+            <!-- شريط التقدم -->
+            <div class="w-full bg-slate-900 h-3 rounded-full mt-3 overflow-hidden border border-slate-700">
+                <div id="progressBar"
+                    style="width: 0%; height: 100%; transition: width 0.3s ease, background-color 0.3s ease;"></div>
             </div>
 
-            <!-- زر الإرسال -->
-            <button type="submit"
-                class="w-full py-3 bg-sky-600 hover:bg-sky-500 active:scale-[0.98] font-semibold rounded-xl shadow-lg shadow-sky-600/20 transition-all cursor-pointer">
-                Submit Password
-            </button>
-        </form>
+            <!-- النسبة المئوية -->
+            <div class="flex justify-between items-center mt-2 text-sm">
+                <span id="strengthText" class="text-slate-400 font-medium">Strength: 0%</span>
+            </div>
+
+            <!-- الشروط -->
+            <ul class="mt-4 space-y-1.5 text-xs text-slate-400">
+                <li id="lengthReq">❌ At least 8 numbers (20%)</li>
+                <li id="lowerReq">❌ At least 6 lowercase letters (40%)</li>
+                <li id="upperReq">❌ At least 6 uppercase letters (100%)</li>
+            </ul>
+        </div>
     </div>
 
-
-
-
-    <script src="script2.js"></script>
+    <script src="script2.js">
+      
+    </script>
 </body>
 
 </html>
